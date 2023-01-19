@@ -49,6 +49,15 @@ pipeline {
             office365ConnectorSend color: '#00ff00', 
                                    message: "ProjectX service build ${env.BUILD_ID} succeeded on ${env.BRANCH_NAME}.", 
                                    status: 'Success', 
+              factDefinitions: [{
+            "name": "Assigned to",
+            "template": "Unassigned"
+        }, {
+            "name": "Due date",
+            "template": "Mon May 01 2017 17:07:18 GMT-0700 (Pacific Daylight Time)"
+        }],
+        "markdown": true
+    }],
                                    webhookUrl: "https://cassbana.webhook.office.com/webhookb2/877fd782-313a-4e74-83de-aa561b976c93@829c1d32-7f03-4209-bd1f-12c4babfc9ce/IncomingWebhook/0a257175f60c4109a6a7f42f60d2c2bd/93bf9ef5-c967-47a3-99fa-416d82ae4045"
         }
   }

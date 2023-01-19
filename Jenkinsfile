@@ -10,7 +10,7 @@ pipeline {
 
   stages {
 
-    stage('Hello') {
+    stage('Prepare') {
 
       steps {
 
@@ -19,6 +19,24 @@ pipeline {
           java -version
 
         '''
+
+      }
+
+    }
+    stage('Build') {
+
+      steps {
+
+        echo "Building......"
+      }
+
+    }
+    
+    stage('Deliver') {
+
+      steps {
+
+        echo "Pushing...."
 
       }
 

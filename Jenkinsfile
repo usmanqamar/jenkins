@@ -36,9 +36,10 @@ pipeline {
       steps {
         script {
           env.USERNAME = input message: 'Please enter the username',
-                             parameters: [string(defaultValue: '',
-                                          description: '',
-                                          name: 'Username')]
+                             parameters: [choice(
+                                choices: ['ONE', 'TWO'], 
+                                name: 'PARAMETER_01'
+                            )]
           env.PASSWORD = input message: 'Please enter the password',
                              parameters: [password(defaultValue: '',
                                           description: '',

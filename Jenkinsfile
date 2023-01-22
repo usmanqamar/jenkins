@@ -35,17 +35,17 @@ pipeline {
     stage ("Prompt for input") {
       steps {
         script {
-          env.USERNAME = input message: 'Please enter the username',
-                             parameters: [choice(
-                                choices: ['ONE', 'TWO'], 
-                                name: 'PARAMETER_01'
-                            )]
+//           env.USERNAME = input message: 'Please enter the username',
+//                              parameters: [choice(
+//                                 choices: ['ONE', 'TWO'], 
+//                                 name: 'PARAMETER_01'
+//                             )]
           env.PASSWORD = input message: 'Please enter the password',
                              parameters: [password(defaultValue: '',
                                           description: '',
                                           name: 'Password')]
         }
-        echo "Username: ${env.USERNAME}"
+        //echo "Username: ${env.USERNAME}"
         echo "Password: ${env.PASSWORD}"
       }
     }

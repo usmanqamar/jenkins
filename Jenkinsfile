@@ -55,7 +55,7 @@ pipeline {
 
       steps {
 
-        echo "Pushing..."
+        echo "Pushing....."
 
       }
 

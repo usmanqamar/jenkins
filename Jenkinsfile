@@ -31,35 +31,19 @@ pipeline {
       }
 
     }
+    
     stage ("Prompt for input") {
       steps {
-        script { 
-                    properties([
-                        parameters([
-                            choice(
-                                choices: ['ONE', 'TWO'], 
-                                name: 'PARAMETER_01'
-                            ),
-                            booleanParam(
-                                defaultValue: true, 
-                                description: '', 
-                                name: 'BOOLEAN'
-                            ),
-                            text(
-                                defaultValue: '''
-                                this is a multi-line 
-                                string parameter example
-                                ''', 
-                                 name: 'MULTI-LINE-STRING'
-                            ),
-                            string(
-                                defaultValue: 'scriptcrunch', 
-                                name: 'STRING-PARAMETER', 
-                                trim: true
-                            )
-                        ])
-                    ])
-                }
+        script {
+          env.USERNAME = input message: 'Please enter the username',
+                             parameters: [string(defaultValue: '',
+                                          description: '',
+                                          name: 'Username')]
+          env.PASSWORD = input message: 'Please enter the password',
+                             parameters: [password(defaultValue: '',
+                                          description: '',
+                                          name: 'Password')]
+        }
         echo "Username: ${env.USERNAME}"
         echo "Password: ${env.PASSWORD}"
       }

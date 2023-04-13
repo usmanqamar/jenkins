@@ -23,7 +23,7 @@ pipeline {
       }
 
     }
-    stage('Build') {
+    stage('Build ${env.BRANCH_NAME}') {
 
       steps {
 
